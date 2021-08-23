@@ -9,7 +9,6 @@ import DatePicker from "./FormsUI/DatePIcker";
 import TimePicker from "./FormsUI/TimePicker";
 import Button from "./FormsUI/Button";
 
-
 function CreateClassForm() {
   const initialClass = {
     className: "",
@@ -95,101 +94,6 @@ function CreateClassForm() {
           </Grid>
         </Form>
       </Formik>
-
-      {/* <form onSubmit={addNewClassHandler}>
-        <h1>Create a New Class</h1>
-        <div>
-          <label htmlFor="name">Event Name</label>
-          <input
-            type="text"
-            name="name"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, name: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="type">Class Type</label>
-          <input
-            type="text"
-            name="type"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, type: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="type">Date</label>
-          <input
-            type="date"
-            name="date"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, date: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="type">Time</label>
-          <input
-            type="time"
-            name="time"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, time: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="type">Duration</label>
-          <input
-            type="text"
-            name="duration"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, duration: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="type">Level</label>
-          <input
-            type="text"
-            name="intensityLevel"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, intensityLevel: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="type">Location</label>
-          <input
-            type="text"
-            name="location"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, location: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="type">Class Size</label>
-          <input
-            type="number"
-            name="maxSize"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, maxSize: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="type">Number of people enrolled</label>
-          <input
-            type="text"
-            name="currentEnrolled"
-            onChange={(e) =>
-              setInputClass({ ...inputClass, currentEnrolled: e.target.value })
-            }
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form> */}
     </Container>
   );
 }
