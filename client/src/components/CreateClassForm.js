@@ -29,7 +29,7 @@ function CreateClassForm() {
     location: Yup.string().required("Required"),
     maxSize: Yup.number()
       .integer()
-      .typeError("please enter a integer")
+      .typeError("please enter an integer")
       .required("Required"),
     date: Yup.date().required("Required"),
     time: Yup.string().required("Required"),
@@ -39,9 +39,6 @@ function CreateClassForm() {
 
   const [inputClass, setInputClass] = useState(initialClass);
   console.log(inputClass);
-  const addNewClassHandler = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <Container maxWidth="sm" className="form">
