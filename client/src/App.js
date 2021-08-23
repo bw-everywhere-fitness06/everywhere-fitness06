@@ -6,6 +6,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import Classes from "./components/Classes";
+import CreateClassForm from "./components/CreateClassForm";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/classes" component={Classes} />
+      <Route path="/newclass" component={CreateClassForm} />
+
       {/* <Route path="/" component={Home} />
       <Route path="/" component={Home} /> */}
     </BrowserRouter>
