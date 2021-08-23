@@ -1,5 +1,7 @@
 import Class from "./Class";
 
+import React from "react";
+
 function Classes() {
   return (
     <div>
