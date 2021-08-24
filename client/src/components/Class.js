@@ -2,7 +2,7 @@ import React from "react";
 
 function Class({ singleClass }) {
   return (
-    <div className="classBox">
+    <div>
       <h1>Class Name : {singleClass.className}</h1>
       <p>Date : {singleClass.date}</p>
       <p>Time : {singleClass.time}</p>
