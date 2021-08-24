@@ -49,9 +49,8 @@ function CreateClassForm() {
         validationSchema={FORM_VALIDATION}
         initialValues={{ ...initialClass }}
         onSubmit={(values) => {
-          setInputClass(values);
-          console.log(inputClass);
-          dispatch(createNewClass(inputClass));
+          dispatch(createNewClass(values));
+          values = initialClass;
         }}
       >
         <Form>
