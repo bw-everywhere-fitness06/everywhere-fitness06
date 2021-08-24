@@ -7,7 +7,7 @@ import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import Classes from "./components/Classes";
 import CreateClassForm from "./components/CreateClassForm";
-
+import { LoginForm } from "./components/accountBox/loginForm";
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
 
@@ -27,7 +27,7 @@ function App() {
         <Route exact path="/" component={Home}>
           <AccountBox />
         </Route>
-        <Route path="/signin" component={SignIn} />
+        <Route path="/signin" component={LoginForm} />
         <Route path="/signup" component={SignUp} />
         <Route path="/classes" component={Classes} />
         <Route path="/newclass" component={CreateClassForm} />

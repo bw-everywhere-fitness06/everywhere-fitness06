@@ -15,8 +15,8 @@ export function LoginForm(props) {
   return (
     <BoxContainer>
       <FormContainer>
-      <Input name="username" type="text" placeholder="Username" />
-      <Input name="password" type="text" placeholder="Password" />
+        <Input name="username" type="text" placeholder="Username" />
+        <Input name="password" type="text" placeholder="Password" />
       </FormContainer>
       <MutedLink href="#">Forget your password?</MutedLink>
       <SubmitButton type="submit">Signin</SubmitButton>
