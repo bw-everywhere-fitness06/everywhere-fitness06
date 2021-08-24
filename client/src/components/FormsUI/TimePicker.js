@@ -1,0 +1,22 @@
+import React from "react";
+import { TextField } from "@material-ui/core";
+import { useField } from "formik";
+
+const TimePicker = ({ name, ...otherProps }) => {
+  const [field, meta] = useField(name);
+
+  const configTimePicker = {
+    ...field,
+    ...otherProps,
+    type: "time",
+    variant: "outlined",
+    fullWidth: true,
+  };
+  if (meta && meta.touched && meta.error) {
+    configTimePicker.error = true;
+    configTimePicker.helperText = meta.error;
+  }
+  return <TextField {...configTimePicker} />;
+};
+
+export default TimePicker;
