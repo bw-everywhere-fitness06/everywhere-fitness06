@@ -14,8 +14,6 @@ import CreateClassForm from "./components/CreateClassForm";
 import Class from "./components/Class";
 import Header from "./components/Header";
 
-import styled from "styled-components";
-import { AccountBox } from "./components/accountBox";
 import { LoginForm } from "./components/accountBox/loginForm";
 
 
