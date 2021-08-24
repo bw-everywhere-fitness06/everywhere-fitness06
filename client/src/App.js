@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Classes from "./components/Classes";
 import styled from 'styled-components';
 import { AccountBox } from './components/accountBox'
+import NavBar from './components/navbar'
 
 const AppContainer = styled.div`
   width: 100%;
@@ -20,7 +21,7 @@ const AppContainer = styled.div`
 function App() {
   return (
     <BrowserRouter>
-
+    <NavBar />
     <AppContainer>
     
   
