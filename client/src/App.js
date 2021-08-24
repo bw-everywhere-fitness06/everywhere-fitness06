@@ -10,8 +10,7 @@ import styled from 'styled-components';
 import { AccountBox } from './components/accountBox'
 import NavBar from './components/navbar'
 import CreateClassForm from "./components/CreateClassForm";
-import styled from "styled-components";
-import { AccountBox } from "./components/accountBox";
+
 
 
 const AppContainer = styled.div`
