@@ -2,7 +2,7 @@ import Class from "./Class";
 import React, { useEffect } from "react";
 import { fetchClasses } from "../Actions/classes.js";
 import { Grid, CircularProgress } from "@material-ui/core";
-
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 function Classes() {
@@ -19,11 +19,11 @@ function Classes() {
       {!allClasses.length ? (
         <CircularProgress />
       ) : (
-        <Grid>
+        <div>
           {allClasses.map((item, index) => {
             return <Class singleClass={item} key={index} />;
           })}
-        </Grid>
+        </div>
       )}
     </div>
   );

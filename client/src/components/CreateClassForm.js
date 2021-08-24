@@ -50,7 +50,6 @@ function CreateClassForm() {
         initialValues={{ ...initialClass }}
         onSubmit={(values) => {
           dispatch(createNewClass(values));
-          values = initialClass;
         }}
       >
         <Form>

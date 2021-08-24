@@ -9,3 +9,14 @@ h1 {
 p {
   text-align: center;
 }
+
+.classBox {
+  text-align: center;
+  border: 1px solid #777;
+  margin: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+button {
+  margin: 0.3rem;
+}
