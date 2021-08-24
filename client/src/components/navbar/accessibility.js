@@ -4,6 +4,7 @@ import styled from "styled-components";
 const AccessibilityContainer = styled.div`
   display: flex;
   margin-left: 10px;
+  justify-content: center;
 `;
 
 const RegisterButton = styled.button`
