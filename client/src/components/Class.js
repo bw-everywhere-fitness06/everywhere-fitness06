@@ -1,8 +1,12 @@
 import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
+import { useParams } from "react-router-dom";
 
 function Class({ item }) {
   console.log(item);
+
+  const { id } = useParams();
+  console.log(id);
   if (!item) return <div></div>;
   return (
     <Container maxWidth="sm" className="classbox">
