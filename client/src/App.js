@@ -13,7 +13,6 @@ import CreateClassForm from "./components/CreateClassForm";
 import MyClasses from "./components/MyClasses";
 import MyBookings from "./components/MyBookings";
 
-
 import Class from "./components/Class";
 import ClassDetails from "./components/ClassDetails";
 
@@ -35,33 +34,16 @@ function App() {
     <BrowserRouter>
       <Header />
 
-<<<<<<< HEAD
       <NavBar />
       <AppContainer>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/signin" component={AccountBox} />
           <Route path="/signup" component={AccountBox} />
-          <Route path="/classes" component={Classes} />
+          <Route path="/classes" component={MyClasses} />
           <Route path="/class-details/:id" component={ClassDetails} />
+          <Route path="/bookings" component={MyBookings} />
           {/* <Route path="/" component={Home} />
-=======
-
-    <NavBar />
-    <AppContainer>
-    
-    <Switch>
-      <Route exact path="/" component={Home} >
-      <AccountBox />
-      </Route>
-      <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/classes" component={MyClasses} />
-      <Route path="/bookings" component={MyBookings} />
-
-      <Route path="/class-details/:id" component={ClassDetails} />
-      {/* <Route path="/" component={Home} />
->>>>>>> ff343b6 (add my bookings)
 
       <AppContainer>
         <Route exact path="/" component={Home}>
