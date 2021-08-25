@@ -2,55 +2,20 @@ import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 
-function Class({ item }) {
-
-  const { id } = useParams();
-  if (!item) return <div></div>;
+function Class({ singleClass }) {
   return (
-    <Container maxWidth="sm" className="classbox">
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <h1>Class Name:: {item.className}</h1>
-        </Grid>
-        <Grid item xs={4}>
-          <span>Date :</span> {item.startDate}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Time :</span> {item.startTime}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Duration :</span> {item.duration} mins
-        </Grid>
-        <Grid item xs={4}>
-          <span>Class Capacity :</span> {item.capacity}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Class Level :</span>
-          {item.intensity}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Class Status :</span>
-          {item.status}
-        </Grid>
-        <Grid item xs={6}>
-          <span>Class Location :</span>
-          {item.location}
-        </Grid>
-        <Grid item xs={6}>
-          <span>Class Instructor :</span>
-          {item.instructorID}
-        </Grid>
-        <Grid item xs={12}>
-          <span>Reserved Client : {item.reservedClientID}</span>
-        </Grid>
-        <Grid item xs={6}>
-          <button> Edit Class</button>
-        </Grid>
-        <Grid item xs={6}>
-          <button> Cancel Class</button>
-        </Grid>
-      </Grid>
-    </Container>
+    <div className="classBox">
+      <h1>Class Name : {singleClass.className}</h1>
+      <p>Date : {singleClass.date}</p>
+      <p>Time : {singleClass.time}</p>
+      <p>Duration: {singleClass.duration}</p>
+      <p>Class Size: {singleClass.maxSize}</p>
+      <p>Class Instructor: {singleClass.instructor}</p>
+
+      <p>Class Level :{singleClass.intensityLevel}</p>
+      <button> Edit Class</button>
+      <button> Cancel Class</button>
+    </div>
   );
 }
 

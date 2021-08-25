@@ -2,8 +2,7 @@ import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 
-function Class({ item }) {
-
+function BookedClass({ item }) {
   const { id } = useParams();
   if (!item) return <div></div>;
   return (
@@ -41,4 +40,4 @@ function Class({ item }) {
   );
 }
 
-export default Class;
+export default BookedClass;

@@ -1,5 +1,5 @@
 import Class from "./Class";
-import { mockClassData as data }  from "../mockData/mockData";
+import { mockClassData as data } from "../mockData/mockData";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,28 +7,29 @@ function fetchClasses() {
   return Promise.resolve({ success: true, data });
 }
 
-
-const instructorId = 4
+const instructorId = 4;
 
 function MyClasses() {
   const [classes, setClasses] = useState([]);
-  
+
   useEffect(() => {
     fetchClasses().then((res) => {
-      setClasses(res.data.filter(int=>int.instructorID==instructorId));
-      console.log(res.data.filter(int=>int.instructorID==instructorId));
+      setClasses(res.data.filter((int) => int.instructorID == instructorId));
+      console.log(res.data.filter((int) => int.instructorID == instructorId));
     });
   }, []);
 
-
   return (
     <div className="classContainer">
-      <h1>All Classes</h1>
+      <h1>My Classes</h1>
       {classes.map((item, index) => {
         return (
-          <Link to={{
-            pathname: `/class-details/${item.classID}`,
-            item: item}}>
+          <Link
+            to={{
+              pathname: `/class-details/${item.classID}`,
+              item: item,
+            }}
+          >
             <Class item={item} key={index} />
           </Link>
         );

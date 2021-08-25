@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/home/Home";
 import Classes from "./components/Classes";
@@ -10,6 +10,7 @@ import CreateClassForm from "./components/CreateClassForm";
 import MyClasses from "./components/MyClasses";
 import MyBookings from "./components/MyBookings";
 import UpcomingClasses from "./components/UpcomingClasses";
+import History from './components/History'
 import Class from "./components/Class";
 import ClassDetails from "./components/ClassDetails";
 import { LoginForm } from "./components/accountBox/loginForm";
@@ -27,7 +28,7 @@ function App() {
   return (
     <BrowserRouter>
 
-      <NavBar />
+      <NavBar/>
       <AppContainer>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -37,6 +38,9 @@ function App() {
           <Route path="/class-details/:id" component={ClassDetails} />
           <Route path="/bookings" component={MyBookings} />
           <Route path="/upcoming-classes" component={UpcomingClasses} />
+          <Route path="/adding-new" component={Classes} />
+
+          <Route path="/history" component={History} />
           {/* <Route path="/" component={Home} />
 
       <AppContainer>

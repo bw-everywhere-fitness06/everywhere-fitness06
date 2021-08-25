@@ -2,10 +2,13 @@ import React from 'react';
 import { useMediaQuery } from "react-responsive";
 import styled from 'styled-components';
 import { Logo } from '../logo';
-import { NavLinks } from './navLinks';
-import { Accessibility } from './accessibility'
+import { ClientNavLinks } from './ClientNavLinks';
+import { InstructorNavLinks } from './InstructorNavLinks';
+import { LoginButton } from './LoginButton'
+import { LogoutButton} from './LogoutButton'
 import { DeviceSize } from "../responsive";
-import { MobileNavLinks } from "./mobileNavLinks";
+import { MobileInstructorNavLinks } from "./MobileInstructorNavLinks";
+import { MobileClientNavLinks } from './MobileClientNavLinks';
 
 const NavBarContainer = styled.div`
     width: 100%;
@@ -34,15 +37,27 @@ const RightSection = styled.div`
 
 export default function NavBar(props) {
     const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
+    const isClient = localStorage.getItem('role') === 'client' ? true : false;
+    const isInstructor = localStorage.getItem('role') === 'instructor' ? true : false;
+    const isLoggedOut = !isClient && !isInstructor ? true: false;
 
     return <NavBarContainer>
         <LeftSection>
-            <Logo />
+            {isLoggedOut && <Logo />}
+            {!isLoggedOut && !isMobile && <Logo />}
+            {!isLoggedOut && isMobile && isClient && <MobileClientNavLinks/>}
+            {!isLoggedOut && isMobile && isInstructor && <MobileInstructorNavLinks/>}
         </LeftSection>
-        <MiddleSection>{!isMobile && <NavLinks />}</MiddleSection>
+        <MiddleSection>
+            {!isLoggedOut && isMobile && <Logo />}
+            {!isLoggedOut && !isMobile && isClient && <ClientNavLinks/>}
+            {!isLoggedOut && !isMobile && isInstructor && <InstructorNavLinks/>}
+
+        </MiddleSection>
         <RightSection>
-        {!isMobile && <Accessibility />}
-        {isMobile && <MobileNavLinks />}
+        {isLoggedOut && <LoginButton />}
+        {!isMobile && !isLoggedOut && <LogoutButton />}
+        {isMobile && !isLoggedOut && <button>Search</button>}
       </RightSection>
     </NavBarContainer>
 }

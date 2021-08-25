@@ -13,8 +13,35 @@ h1 {
 .classbox {
   max-width: 70%;
   background-color: rgb(143, 191, 193);
-  margin: 1rem 1rem;
+  margin: 1rem 2rem;
   border-radius: 20px;
+}
+.classBox {
+  max-width: 70%;
+  background-color: rgb(217, 196, 230);
+  margin: 1rem 2rem;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+}
+
+.classBox p {
+  margin-left: 2rem;
+}
+
+.classBox span {
+  font-weight: bold;
+}
+
+.classBox button {
+  margin: 0.4rem 3rem;
+  padding: 0.5rem 1rem;
+  background-color: rgb(195, 163, 199);
+  border-style: none;
+  border-radius: 10px;
+}
+.classBox button:hover {
+  transform: scale(1.2);
+  background-color: rgb(119, 92, 134);
 }
 
 .classbox p {
