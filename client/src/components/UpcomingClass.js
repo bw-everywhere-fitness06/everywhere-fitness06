@@ -1,9 +1,22 @@
 import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import axios from 'axios';
 
-function BookedClass({ item }) {
+
+const userID = 1;
+function UpcomingClass({ item }) {
   const { id } = useParams();
+  const { push } = useHistory();
+
+  const handleBookCLass = () => {
+
+    axios.post('http://localhost:8081/users',{Name: 'Fred',
+    Age: '23'}).then(function (response) {
+      console.log(response);
+    })
+    // push("/bookings");
+  };
   if (!item) return <div></div>;
   return (
     <Container maxWidth="sm" className="classbox">
@@ -33,11 +46,11 @@ function BookedClass({ item }) {
           {item.location}
         </Grid>
         <Grid item xs={6}>
-          <button> Cancel Class</button>
+          <button onClick={handleBookCLass}> Book</button>
         </Grid>
       </Grid>
     </Container>
   );
 }
 
-export default BookedClass;
+export default UpcomingClass;
