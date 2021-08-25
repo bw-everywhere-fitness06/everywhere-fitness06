@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Accessibility } from "./accessibility";
 import { MenuToggle } from "./menuToggle";
+import { LogoutButton } from "./LogoutButton";
 
 const NavLinksContainer = styled.div`
   height: 100%;
@@ -46,7 +46,7 @@ const Marginer = styled.div`
   height: 2em;
 `;
 
-export function MobileNavLinks(props) {
+export function MobileInstructorNavLinks(props) {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -54,23 +54,18 @@ export function MobileNavLinks(props) {
       <MenuToggle isOpen={isOpen} toggle={() => setOpen(!isOpen)} />
       {isOpen && (
         <LinksWrapper>
+          <Marginer />
           <LinkItem>
-            <Link href="/about">About us</Link>
+            <Link href="/classes">My Classes</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="/upcoming-classes">Upcoming Classes</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="/bookings">My Bookings</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="/class">My classes</Link>
+            <Link href="/adding-new">Add A Class</Link>
           </LinkItem>
           <LinkItem>
             <Link href="/history">History</Link>
           </LinkItem>
           <Marginer />
-          <Accessibility />
+          <LogoutButton/>
         </LinksWrapper>
       )}
     </NavLinksContainer>

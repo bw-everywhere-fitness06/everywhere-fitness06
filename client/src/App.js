@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import Header from "./components/Header";
 import SignIn from "./components/SignIn";
@@ -35,7 +35,7 @@ function App() {
     <BrowserRouter>
       <Header />
 
-      <NavBar />
+      <NavBar/>
       <AppContainer>
         <Switch>
           <Route exact path="/" component={Home} />
