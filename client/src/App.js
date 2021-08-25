@@ -6,9 +6,9 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import Classes from "./components/Classes";
-import styled from 'styled-components';
-import { AccountBox } from './components/accountBox'
-import NavBar from './components/navbar'
+import styled from "styled-components";
+import { AccountBox } from "./components/accountBox";
+import NavBar from "./components/navbar";
 import CreateClassForm from "./components/CreateClassForm";
 
 import Class from "./components/Class";
@@ -17,7 +17,6 @@ import ClassDetails from "./components/ClassDetails";
 import Header from "./components/Header";
 
 import { LoginForm } from "./components/accountBox/loginForm";
-
 
 const AppContainer = styled.div`
   width: 100%;
@@ -41,7 +40,7 @@ function App() {
         <Route path="/classes" component={Classes} />
         <Route path="/class-details/:id" component={ClassDetails} />
 
-      {/* <Route path="/" component={Home} />
+        {/* <Route path="/" component={Home} />
 
       <AppContainer>
         <Route exact path="/" component={Home}>
@@ -57,7 +56,7 @@ function App() {
         {/* <Route path="/" component={Home} />
 
       <Route path="/" component={Home} /> */}
-      </Switch>
+        {/* </Switch> */}
       </AppContainer>
     </BrowserRouter>
   );
