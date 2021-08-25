@@ -10,6 +10,9 @@ import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
 import NavBar from "./components/navbar";
 import CreateClassForm from "./components/CreateClassForm";
+import MyClasses from "./components/MyClasses";
+import MyBookings from "./components/MyBookings";
+import UpcomingClasses from "./components/UpcomingClasses";
 
 import Class from "./components/Class";
 import ClassDetails from "./components/ClassDetails";
@@ -34,13 +37,15 @@ function App() {
 
       <NavBar />
       <AppContainer>
-        <Route exact path="/" component={Home} />
-        <Route path="/signin" component={AccountBox} />
-        <Route path="/signup" component={AccountBox} />
-        <Route path="/classes" component={Classes} />
-        <Route path="/class-details/:id" component={ClassDetails} />
-
-        {/* <Route path="/" component={Home} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/signin" component={AccountBox} />
+          <Route path="/signup" component={AccountBox} />
+          <Route path="/classes" component={MyClasses} />
+          <Route path="/class-details/:id" component={ClassDetails} />
+          <Route path="/bookings" component={MyBookings} />
+          <Route path="/upcoming-classes" component={UpcomingClasses} />
+          {/* <Route path="/" component={Home} />
 
       <AppContainer>
         <Route exact path="/" component={Home}>
@@ -56,7 +61,7 @@ function App() {
         {/* <Route path="/" component={Home} />
 
       <Route path="/" component={Home} /> */}
-        {/* </Switch> */}
+        </Switch>
       </AppContainer>
     </BrowserRouter>
   );

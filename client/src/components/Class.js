@@ -2,9 +2,9 @@ import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 
-function Class({ item }) {
+function Class({ singleClass }) {
   const { id } = useParams();
-  if (!item) return <div></div>;
+  if (!singleClass) return <div></div>;
   return (
     <div>
       <h1>Class Name : {singleClass.className}</h1>
