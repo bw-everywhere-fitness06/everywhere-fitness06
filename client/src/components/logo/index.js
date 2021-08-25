@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import FitnessLogo from '../../assets/logo.jpg'
+import Logoimage from '../assets/logo.jpg'
 
 const LogoWrapper = styled.div`
     display: flex;
@@ -12,8 +12,8 @@ const LogoImg = styled.div`
     height: 50px;
 
     img{
-        width: 100%;
-        height: 100%;
+        width: 6%;
+        height: 7%;
     }
 `;
 
@@ -27,7 +27,7 @@ const LogoText = styled.h2`
 
 export function Logo(props) {
     return <LogoWrapper>
-        <LogoImg><img src={FitnessLogo} alt="Fitness logo" /></LogoImg>
+        <LogoImg><img src={Logoimage} alt="Fitness logo" /></LogoImg>
         <LogoText>The Future of Fitness</LogoText>
     </LogoWrapper>
 }

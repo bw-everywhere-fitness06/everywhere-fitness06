@@ -1,10 +1,7 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import Header from "./components/Header";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
-import Home from "./components/Home";
+import Home from "./components/home/Home";
 import Classes from "./components/Classes";
 import styled from "styled-components";
 import { AccountBox } from "./components/accountBox";
@@ -13,12 +10,8 @@ import CreateClassForm from "./components/CreateClassForm";
 import MyClasses from "./components/MyClasses";
 import MyBookings from "./components/MyBookings";
 import UpcomingClasses from "./components/UpcomingClasses";
-
 import Class from "./components/Class";
 import ClassDetails from "./components/ClassDetails";
-
-import Header from "./components/Header";
-
 import { LoginForm } from "./components/accountBox/loginForm";
 
 const AppContainer = styled.div`
@@ -33,7 +26,6 @@ const AppContainer = styled.div`
 function App() {
   return (
     <BrowserRouter>
-      <Header />
 
       <NavBar />
       <AppContainer>
