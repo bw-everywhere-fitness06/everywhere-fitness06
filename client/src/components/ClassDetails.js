@@ -9,6 +9,7 @@ function fetchClassDetails(id) {
     return Promise.resolve({ success: true, data:dataItem[0] });
   }
 
+
 function ClassDetails() {
     const [details, setDetails] = useState([]);
     const [timer, setTimer] = useState([]);
