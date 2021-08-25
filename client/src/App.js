@@ -12,6 +12,8 @@ import NavBar from './components/navbar'
 import CreateClassForm from "./components/CreateClassForm";
 
 import Class from "./components/Class";
+import ClassDetails from "./components/ClassDetails";
+
 import Header from "./components/Header";
 
 import { LoginForm } from "./components/accountBox/loginForm";
@@ -35,13 +37,14 @@ function App() {
     <NavBar />
     <AppContainer>
     
-  
+    <Switch>
       <Route exact path="/" component={Home} >
       <AccountBox />
       </Route>
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/classes" component={Classes} />
+      <Route path="/class-details/:id" component={ClassDetails} />
       {/* <Route path="/" component={Home} />
 
       <AppContainer>
@@ -58,6 +61,7 @@ function App() {
         {/* <Route path="/" component={Home} />
 
       <Route path="/" component={Home} /> */}
+      </Switch>
       </AppContainer>
     </BrowserRouter>
   );

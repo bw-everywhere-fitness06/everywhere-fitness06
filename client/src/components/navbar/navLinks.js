@@ -51,7 +51,7 @@ export function NavLinks(props) {
           <Link href="/bookings">My Bookings</Link>
         </LinkItem>
         <LinkItem>
-          <Link href="/class">My Classes</Link>
+          <Link href="/classes">My Classes</Link>
         </LinkItem>
         <LinkItem>
           <Link href="/history">History</Link>
