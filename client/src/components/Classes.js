@@ -20,7 +20,9 @@ function Classes() {
       <h1>All Classes</h1>
       {mockClassData.map((item, index) => {
         return (
-          <Link to={`/classes/${item.classID}`}>
+          <Link to={{
+            pathname: `/class-details/${item.classID}`,
+            item: item}}>
             <Class item={item} key={index} />
           </Link>
         );

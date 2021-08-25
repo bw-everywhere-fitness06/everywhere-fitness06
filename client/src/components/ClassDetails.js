@@ -1,16 +1,16 @@
 import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation } from "react-router-dom";
 
-function Class({ item }) {
-  // console.log(item);
+function ClassDetails() {
+    const location = useLocation()
+    const { item } = location
 
-  const { id } = useParams();
-  // console.log(id);
-  if (!item) return <div></div>;
+    const { id } = useParams();
+    console.log(item);
   return (
-    <Container maxWidth="sm" className="classbox">
-      <Grid container spacing={2}>
+    <Container>
+       <Grid container spacing={2}>
         <Grid item xs={12}>
           <h1>Class Name:: {item.className}</h1>
         </Grid>
@@ -52,8 +52,9 @@ function Class({ item }) {
           <button> Cancel Class</button>
         </Grid>
       </Grid>
+
     </Container>
   );
 }
 
-export default Class;
+export default ClassDetails;
