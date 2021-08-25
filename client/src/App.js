@@ -13,9 +13,6 @@ import CreateClassForm from "./components/CreateClassForm";
 
 import { LoginForm } from "./components/accountBox/loginForm";
 
-import styled from "styled-components";
-import { AccountBox } from "./components/accountBox";
-
 const AppContainer = styled.div`
   width: 100%;
   height: 100%;
