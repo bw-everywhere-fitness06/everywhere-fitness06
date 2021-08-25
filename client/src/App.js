@@ -6,12 +6,18 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import Classes from "./components/Classes";
-import styled from "styled-components";
-import { AccountBox } from "./components/accountBox";
-import NavBar from "./components/navbar";
+import styled from 'styled-components';
+import { AccountBox } from './components/accountBox'
+import NavBar from './components/navbar'
 import CreateClassForm from "./components/CreateClassForm";
 
+import Class from "./components/Class";
+import ClassDetails from "./components/ClassDetails";
+
+import Header from "./components/Header";
+
 import { LoginForm } from "./components/accountBox/loginForm";
+
 
 const AppContainer = styled.div`
   width: 100%;
@@ -25,15 +31,17 @@ const AppContainer = styled.div`
 function App() {
   return (
     <BrowserRouter>
+      <Header />
+
       <NavBar />
       <AppContainer>
-        <Route exact path="/" component={Home}>
-          <AccountBox />
-        </Route>
-        <Route path="/signin" component={SignIn} />
-        <Route path="/signup" component={SignUp} />
+        <Route exact path="/" component={Home} />
+        <Route path="/signin" component={AccountBox} />
+        <Route path="/signup" component={AccountBox} />
         <Route path="/classes" component={Classes} />
-        {/* <Route path="/" component={Home} />
+        <Route path="/class-details/:id" component={ClassDetails} />
+
+      {/* <Route path="/" component={Home} />
 
       <AppContainer>
         <Route exact path="/" component={Home}>
@@ -42,11 +50,14 @@ function App() {
         <Route path="/signin" component={LoginForm} />
         <Route path="/signup" component={SignUp} />
         <Route path="/classes" component={Classes} />
+        <Route path="/classes/:id" component={Class} />
+
         <Route path="/newclass" component={CreateClassForm} />
 
         {/* <Route path="/" component={Home} />
 
       <Route path="/" component={Home} /> */}
+      </Switch>
       </AppContainer>
     </BrowserRouter>
   );
