@@ -4,6 +4,7 @@ import { fetchClasses } from "../Actions/classes.js";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import CreateClassForm from "./CreateClassForm";
 
 function Classes() {
   const dispatch = useDispatch();
@@ -14,18 +15,23 @@ function Classes() {
   const allClasses = useSelector((state) => state.classes);
   console.log(allClasses);
   return (
-    <div>
-      <h1> Classes</h1>
-      {!allClasses.length ? (
-        <CircularProgress />
-      ) : (
-        <div>
-          {allClasses.map((item, index) => {
-            return <Class singleClass={item} key={index} />;
-          })}
-        </div>
-      )}
-    </div>
+    <Grid container spacing={2}>
+      <Grid item xs={7}>
+        <h1> Classes</h1>
+        {!allClasses.length ? (
+          <CircularProgress />
+        ) : (
+          <div>
+            {allClasses.map((item, index) => {
+              return <Class singleClass={item} key={index} />;
+            })}
+          </div>
+        )}
+      </Grid>
+      <Grid item xs={5}>
+        <CreateClassForm />
+      </Grid>
+    </Grid>
   );
 }
 

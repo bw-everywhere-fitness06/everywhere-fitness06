@@ -27,7 +27,7 @@ export const createNewClass = (input) => {
     axios
       .post("http://localhost:5000/classes", input)
       .then((res) => {
-        console.log(res);
+        dispatch(createClass(res.data));
       })
       .catch((err) => {
         console.log(err.message);
