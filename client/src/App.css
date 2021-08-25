@@ -13,11 +13,6 @@ h1 {
   border-radius: 20px;
 }
 
-.classContainer {
-  position: absolute;
-  top: 200px;
-}
-
 .classbox p {
   margin-left: 2rem;
 }
