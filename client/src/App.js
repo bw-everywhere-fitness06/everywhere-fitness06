@@ -57,7 +57,6 @@ function App() {
         {/* <Route path="/" component={Home} />
 
       <Route path="/" component={Home} /> */}
-      </Switch>
       </AppContainer>
     </BrowserRouter>
   );
