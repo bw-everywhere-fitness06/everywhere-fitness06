@@ -13,6 +13,7 @@ import CreateClassForm from "./components/CreateClassForm";
 import MyClasses from "./components/MyClasses";
 import MyBookings from "./components/MyBookings";
 import UpcomingClasses from "./components/UpcomingClasses";
+import History from './components/History'
 
 import Class from "./components/Class";
 import ClassDetails from "./components/ClassDetails";
@@ -45,6 +46,7 @@ function App() {
           <Route path="/class-details/:id" component={ClassDetails} />
           <Route path="/bookings" component={MyBookings} />
           <Route path="/upcoming-classes" component={UpcomingClasses} />
+          <Route path="/history" component={History} />
           {/* <Route path="/" component={Home} />
 
       <AppContainer>
