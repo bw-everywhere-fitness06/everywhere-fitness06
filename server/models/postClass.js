@@ -6,6 +6,7 @@ const postSchema = mongoose.Schema({
   date: String,
   time: String,
   duration: String,
+  instructor: String,
   intensityLevel: String,
   location: String,
   maxSize: String,

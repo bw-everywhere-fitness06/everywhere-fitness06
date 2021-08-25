@@ -17,7 +17,6 @@ function App() {
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
         <Route path="/classes" component={Classes} />
-        <Route path="/newclass" component={CreateClassForm} />
       </Switch>
       {/* <Route path="/" component={Home} />
       <Route path="/" component={Home} /> */}

@@ -19,6 +19,7 @@ function CreateClassForm() {
     duration: "",
     intensityLevel: "",
     location: "",
+    instructor: "",
     maxSize: "",
     currentEnrolled: "",
   };
@@ -28,6 +29,8 @@ function CreateClassForm() {
     type: Yup.string().required("Required"),
     intensityLevel: Yup.string().required("Required"),
     location: Yup.string().required("Required"),
+    instructor: Yup.string().required("Required"),
+
     maxSize: Yup.number()
       .integer()
       .typeError("please enter an integer")
@@ -69,6 +72,9 @@ function CreateClassForm() {
 
             <Grid item xs={12}>
               <TextField name="location" label="Location" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField name="instructor" label="instructor" />
             </Grid>
             <Grid item xs={6}>
               <DatePicker name="date" label="Date" />

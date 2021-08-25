@@ -8,6 +8,8 @@ function Class({ singleClass }) {
       <p>Time : {singleClass.time}</p>
       <p>Duration: {singleClass.duration}</p>
       <p>Class Size: {singleClass.maxSize}</p>
+      <p>Class Instructor: {singleClass.instructor}</p>
+
       <p>Class Level :{singleClass.intensityLevel}</p>
       <button> Edit Class</button>
       <button> Cancel Class</button>
