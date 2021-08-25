@@ -30,18 +30,12 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-
-
-    <NavBar />
-    <AppContainer>
-    
-  
-      <Route exact path="/" component={Home} >
-      <AccountBox />
-      </Route>
-      <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/classes" component={Classes} />
+      <NavBar />
+      <AppContainer>
+        <Route exact path="/" component={Home} />
+        <Route path="/signin" component={AccountBox} />
+        <Route path="/signup" component={AccountBox} />
+        <Route path="/classes" component={Classes} />
       {/* <Route path="/" component={Home} />
 
       <AppContainer>
