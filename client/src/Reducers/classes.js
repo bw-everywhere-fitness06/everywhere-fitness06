@@ -1,4 +1,4 @@
-const initialClass = [
+// const initialClass = [
   // {
   //   className: "",
   //   type: "",
@@ -10,17 +10,17 @@ const initialClass = [
   //   maxSize: "",
   //   currentEnrolled: "",
   // },
-];
+// ];
 
-const classes = (state = initialClass, action) => {
-  switch (action.type) {
-    case "FETCH_ALL":
-      return action.payload;
-    case "CREATE_CLASS":
-      return [...state, action.payload];
-    default:
-      return state;
-  }
-};
+// const classes = (state = initialClass, action) => {
+//   switch (action.type) {
+//     case "FETCH_ALL":
+//       return action.payload;
+//     case "CREATE_CLASS":
+//       return [...state, action.payload];
+//     default:
+//       return state;
+//   }
+// };
 
-export default classes;
+// export default classes;

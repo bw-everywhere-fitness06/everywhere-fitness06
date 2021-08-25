@@ -38,7 +38,8 @@ export function LoginForm(props) {
     //   .catch(err=> {
     //     console.log(err);
     //   })
-    props.history.push("/classes");
+    credentials.email === 'instructor' ? localStorage.setItem("role", "instructor"): localStorage.setItem("role", "client");
+    localStorage.getItem("role") === 'instructor' ? props.history.push("/classes"): props.history.push("/upcoming-classes")
   };
 
   return (

@@ -37,21 +37,15 @@ const Link = styled.a`
   font-size: 13px;
 `;
 
-export function NavLinks(props) {
+export function ClientNavLinks(props) {
   return (
     <NavLinksContainer>
       <LinksWrapper>
         <LinkItem>
-          <Link href="/about">About us</Link>
-        </LinkItem>
-        <LinkItem>
-          <Link href="/upcoming-classes">Upcoming Classes</Link>
+          <Link href="/upcoming-classes">Classes</Link>
         </LinkItem>
         <LinkItem>
           <Link href="/bookings">My Bookings</Link>
-        </LinkItem>
-        <LinkItem>
-          <Link href="/classes">My Classes</Link>
         </LinkItem>
         <LinkItem>
           <Link href="/history">History</Link>

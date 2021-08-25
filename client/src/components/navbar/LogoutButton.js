@@ -7,27 +7,8 @@ const AccessibilityContainer = styled.div`
   justify-content: center;
 `;
 
-const RegisterButton = styled.button`
-  border: 0;
-  outline: 0;
-  padding: 8px 1em;
-  color: #222;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 20px;
-  border: 2px solid #00c9ff;
-  background-color: transparent;
-  transition: all 240ms ease-in-out;
-  cursor: pointer;
-  &:hover {
-    background-color: #00c9ff;
-  }
-  &:not(:last-of-type) {
-    margin-right: 7px;
-  }
-`;
-
-const LoginButton = styled.button`
+const LogoutButtonStyle = styled.a`
+  text-decoration: none;
   border: 0;
   outline: 0;
   padding: 8px 1em;
@@ -48,11 +29,14 @@ const LoginButton = styled.button`
   }
 `;
 
-export function Accessibility(props) {
+const handleLogout = () =>{
+  localStorage.removeItem('role')
+}
+
+export function LogoutButton(props) {
   return (
     <AccessibilityContainer>
-      <RegisterButton>Register</RegisterButton>
-      <LoginButton>Login</LoginButton>
+      <LogoutButtonStyle onClick={handleLogout} href="/home">Logout</LogoutButtonStyle>
     </AccessibilityContainer>
   );
 }
