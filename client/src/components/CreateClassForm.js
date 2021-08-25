@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import TextField from "./FormsUI/TextField";
 import DatePicker from "./FormsUI/DatePIcker";
 import TimePicker from "./FormsUI/TimePicker";
 import Button from "./FormsUI/Button";
+import { createNewClass } from "../Actions/classes";
+import { useDispatch, useSelector } from "react-redux";
 
 function CreateClassForm() {
   const initialClass = {
@@ -18,6 +19,7 @@ function CreateClassForm() {
     duration: "",
     intensityLevel: "",
     location: "",
+    instructor: "",
     maxSize: "",
     currentEnrolled: "",
   };
@@ -27,6 +29,8 @@ function CreateClassForm() {
     type: Yup.string().required("Required"),
     intensityLevel: Yup.string().required("Required"),
     location: Yup.string().required("Required"),
+    instructor: Yup.string().required("Required"),
+
     maxSize: Yup.number()
       .integer()
       .typeError("please enter an integer")
@@ -38,8 +42,7 @@ function CreateClassForm() {
   });
 
   const [inputClass, setInputClass] = useState(initialClass);
-  console.log(inputClass);
-
+  const dispatch = useDispatch();
   return (
     <Container maxWidth="sm" className="form">
       <Grid item xs={12}>
@@ -49,7 +52,7 @@ function CreateClassForm() {
         validationSchema={FORM_VALIDATION}
         initialValues={{ ...initialClass }}
         onSubmit={(values) => {
-          setInputClass(values);
+          dispatch(createNewClass(values));
         }}
       >
         <Form>
@@ -69,6 +72,9 @@ function CreateClassForm() {
 
             <Grid item xs={12}>
               <TextField name="location" label="Location" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField name="instructor" label="instructor" />
             </Grid>
             <Grid item xs={6}>
               <DatePicker name="date" label="Date" />

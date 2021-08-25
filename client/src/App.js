@@ -45,6 +45,8 @@ function App() {
           <Route path="/class-details/:id" component={ClassDetails} />
           <Route path="/bookings" component={MyBookings} />
           <Route path="/upcoming-classes" component={UpcomingClasses} />
+          <Route path="/adding-new" component={Classes} />
+
           {/* <Route path="/" component={Home} />
 
       <AppContainer>
