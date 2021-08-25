@@ -6,17 +6,29 @@ h1 {
   text-align: center;
 }
 
-p {
-  text-align: center;
-}
-
-.classBox {
-  text-align: center;
-  border: 1px solid #777;
-  margin: 0.5rem 1rem;
+.classbox {
+  max-width: 70%;
+  background-color: rgb(143, 191, 193);
+  margin: 1rem 1rem;
   border-radius: 20px;
 }
 
-button {
-  margin: 0.3rem;
+.classbox p {
+  margin-left: 2rem;
+}
+
+.classbox span {
+  font-weight: bold;
+}
+
+.classbox button {
+  margin: 0.4rem 3rem;
+  padding: 0.5rem 1rem;
+  background-color: darkcyan;
+  border-style: none;
+  border-radius: 10px;
+}
+.classbox button:hover {
+  transform: scale(1.2);
+  background-color: rgb(7, 105, 105);
 }
