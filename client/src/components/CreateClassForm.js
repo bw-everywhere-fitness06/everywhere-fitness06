@@ -14,32 +14,33 @@ function CreateClassForm() {
   const initialClass = {
     className: "",
     type: "",
-    date: "",
-    time: "",
+    startDate: "",
+    startTime: "",
     duration: "",
-    intensityLevel: "",
+    intensity: "",
     location: "",
-    instructor: "",
-    maxSize: "",
-    currentEnrolled: "",
+    instructorID: "",
+    capacity: "",
+    reservedClientIDs: "",
+    classID: "",
   };
 
   const FORM_VALIDATION = Yup.object().shape({
     className: Yup.string().required("Required"),
     type: Yup.string().required("Required"),
-    intensityLevel: Yup.string().required("Required"),
+    intensity: Yup.string().required("Required"),
     location: Yup.string().required("Required"),
-    instructor: Yup.string().required("Required"),
-
-    maxSize: Yup.number()
+    instructorID: Yup.string().required("Required"),
+    capacity: Yup.number()
       .integer()
       .typeError("please enter an integer")
       .required("Required"),
-    date: Yup.date().required("Required"),
-    time: Yup.string().required("Required"),
+    startDate: Yup.date().required("Required"),
+    startTime: Yup.string().required("Required"),
     duration: Yup.string().required("Required"),
-    currentEnrolled: Yup.string().required("Required"),
+    reservedClientIDs: Yup.string().required("Required"),
   });
+  const allClasses = useSelector((state) => state.classes);
 
   const [inputClass, setInputClass] = useState(initialClass);
   const dispatch = useDispatch();
@@ -52,7 +53,9 @@ function CreateClassForm() {
         validationSchema={FORM_VALIDATION}
         initialValues={{ ...initialClass }}
         onSubmit={(values) => {
-          dispatch(createNewClass(values));
+          dispatch(
+            createNewClass({ ...values, classID: allClasses.length + 1 })
+          );
         }}
       >
         <Form>
@@ -64,32 +67,29 @@ function CreateClassForm() {
               <TextField name="type" label="Class Type" />
             </Grid>
             <Grid item xs={6}>
-              <TextField name="intensityLevel" label="Class Level" />
+              <TextField name="intensity" label="Class Level" />
             </Grid>
             <Grid item xs={6}>
-              <TextField name="maxSize" label="Class Size" />
+              <TextField name="capacity" label="Class Capacity" />
             </Grid>
 
             <Grid item xs={12}>
               <TextField name="location" label="Location" />
             </Grid>
             <Grid item xs={12}>
-              <TextField name="instructor" label="instructor" />
+              <TextField name="instructorID" label="instructorId" />
             </Grid>
             <Grid item xs={6}>
-              <DatePicker name="date" label="Date" />
+              <DatePicker name="startDate" label="Date" />
             </Grid>
             <Grid item xs={6}>
-              <TimePicker name="time" label="Time" />
+              <TimePicker name="startTime" label="Time" />
             </Grid>
             <Grid item xs={6}>
               <TextField name="duration" label="Duration" />
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                name="currentEnrolled"
-                label="Currently Enrolled People"
-              />
+              <TextField name="reservedClientIDs" label="Reserved Client" />
             </Grid>
             <Grid item xs={12}>
               <Button>Submit Form</Button>

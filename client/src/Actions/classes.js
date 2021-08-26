@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import { NavDropdown } from "react-bootstrap";
-
 const fetchAll = (data) => {
   return { type: "FETCH_ALL", payload: data };
 };
@@ -15,6 +13,7 @@ export const fetchClasses = () => {
     axios
       .get("http://localhost:5000/classes")
       .then((res) => {
+        console.log(res);
         dispatch(fetchAll(res.data));
       })
       .catch((err) => {

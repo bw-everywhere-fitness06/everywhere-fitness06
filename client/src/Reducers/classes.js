@@ -1,16 +1,4 @@
-const initialClass = [
-  {
-    className: "",
-    type: "",
-    date: "",
-    time: "",
-    duration: "",
-    intensityLevel: "",
-    location: "",
-    maxSize: "",
-    currentEnrolled: "",
-  },
-];
+const initialClass = [];
 
 const classes = (state = initialClass, action) => {
   switch (action.type) {

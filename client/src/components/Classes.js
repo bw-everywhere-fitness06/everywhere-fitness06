@@ -17,7 +17,7 @@ function Classes() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={7}>
-        <h1> Classes</h1>
+        <h1>All Classes</h1>
         {!allClasses.length ? (
           <CircularProgress />
         ) : (
