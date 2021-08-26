@@ -9,70 +9,66 @@ app.use(CORS());
 
 let mockUserData = [
     {
-      userID: "1",
+      userID: "0",
       username: "Client1",
       password: "password1",
       name: "Client1 Test1",
       email: "Client1@test.com",
       phone: "111-111-1111",
       role: "Client",
-      reservationIDs: ["1", "2", "4", "6"],
     },
     {
-      userID: "2",
+      userID: "1",
       username: "Client2",
       password: "password2",
       name: "Client2 Test2",
       email: "Client2@test.com",
       phone: "222-222-2222",
       role: "Client",
-      reservationIDs: ["1", "2", "3", "6"],
     },
     {
-      userID: "3",
+      userID: "2",
       username: "Client3",
       password: "password3",
       name: "Client3 Test3",
       email: "Client3@test.com",
       phone: "333-333-3333",
       role: "Client",
-      reservationIDs: ["3", "4", "5", "6"],
     },
     {
-      userID: "4",
+      userID: "3",
       username: "Instructor1",
       password: "password11",
       name: "Instructor11 Test11",
       email: "Instructor11@test.com",
       phone: "101-101-1010",
       role: "Instructor",
-      reservationIDs: [],
     },
     {
-      userID: "5",
+      userID: "4",
       username: "Instructor2",
       password: "password22",
       name: "Instructor22 Test22",
       email: "Instructor22@test.com",
       phone: "202-202-2020",
       role: "Instructor",
-      reservationIDs: [],
+
     },
     {
-      userID: "6",
+      userID: "5",
       username: "Instructor3",
       password: "password33",
       name: "Instructor33 Test33",
       email: "Instructor33@test.com",
       phone: "303-303-3030",
       role: "Instructor",
-      reservationIDs: [],
+
     },
   ];
   
 let mockClassData = [
 {
-    classID: "1",
+    classID: "0",
     startDate: "Aug 22,2021",
     startTime: "6:00pm",
     duration: "60",
@@ -86,7 +82,7 @@ let mockClassData = [
     reservedClientIDs: ["1", "2"],
 },
 {
-    classID: "2",
+    classID: "1",
     startDate: "Aug 23,2021",
     startTime: "7:00pm",
     duration: "70",
@@ -100,7 +96,7 @@ let mockClassData = [
     reservedClientIDs: ["1", "2"],
 },
 {
-    classID: "3",
+    classID: "2",
     startDate: "Aug 24,2021",
     startTime: "8:00pm",
     duration: "45",
@@ -114,7 +110,7 @@ let mockClassData = [
     reservedClientIDs: ["2", "3"],
 },
 {
-    classID: "4",
+    classID: "3",
     startDate: "Aug 25,2021",
     startTime: "6:30pm",
     duration: "50",
@@ -128,7 +124,7 @@ let mockClassData = [
     reservedClientIDs: ["1", "3"],
 },
 {
-    classID: "5",
+    classID: "4",
     startDate: "Aug 26,2021",
     startTime: "9:30pm",
     duration: "30",
@@ -142,7 +138,7 @@ let mockClassData = [
     reservedClientIDs: ["3"],
 },
 {
-    classID: "6",
+    classID: "5",
     startDate: "Aug 27,2021",
     startTime: "12:30pm",
     duration: "25",
@@ -174,13 +170,24 @@ let mockClassData = [
   });
   
   app.post("/users", (req, res) => {
-    if (req.body.username !== undefined) {
-      const newUser = req.body;
-      newUser["id"] = userId;
-      mockUserData.push(newUser);
+    if (
+        req.body.username === undefined ||
+        !req.body.password ||
+        !req.body.name ||
+        !req.body.email ||
+        !req.body.phone ||
+        !req.body.role
+      )  {
+        res.status(400).send("Make sure your request body has all the fields it needs");
     }
-    ++userId;
-    res.status(201).json(mockUserData);
+      let newUser = req.body;
+      newUser["userID"] = userId;
+      mockUserData.push(newUser);
+      ++userId;
+      res.status(201).json(mockUserData);
+    
+    
+   
   });
   
   app.put("/users/:id", (req, res) => {
@@ -193,8 +200,7 @@ let mockClassData = [
       !req.body.name ||
       !req.body.email ||
       !req.body.phone ||
-      !req.body.role ||
-      !req.body.reservationIDs
+      !req.body.role
     ) {
       res
         .status(422)
@@ -232,13 +238,27 @@ let classId = mockClassData.length;
   });
   
   app.post("/classes", (req, res) => {
-    if (req.body.className !== undefined) {
-      const newClass = req.body;
-      newClass["id"] = classId;
-      mockClassData.push(newClass);
+    if (req.body.classID === undefined ||
+        !req.body.startDate ||
+        !req.body.startTime ||
+        !req.body.duration ||
+        !req.body.status ||
+        !req.body.location ||
+        !req.body.type ||
+        !req.body.intensity ||
+        !req.body.capacity ||
+        !req.body.instructorID ||
+        !req.body.className ||
+        !req.body.reservedClientIDs) {
+        res.status(400).send("Your request is missing the className");
     }
-    ++classId;
+      let newClass = req.body;
+      newClass["classId"] = classId;
+      mockClassData.push(newClass);
+      ++classId;
     res.status(201).json(mockClassData);
+    
+    
   });
   
   app.put("/classes/:id", (req, res) => {
