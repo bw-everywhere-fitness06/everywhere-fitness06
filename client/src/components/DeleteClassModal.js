@@ -30,8 +30,8 @@ const DeleteMovieModal = (props) => {
           </button>
         </div>
         <div className="modal-body">
-          <p>Are you sure you want to cancel this class?</p>
-          <p className="text-warning">
+          <p className="warning">Are you sure you want to cancel this class?</p>
+          <p className="warning">
             <small>This action cannot be undone.</small>
           </p>
         </div>
@@ -40,13 +40,13 @@ const DeleteMovieModal = (props) => {
             type="button"
             className="btn btn-default"
             data-dismiss="modal"
-            value="Cancel"
+            value="No, bring me back."
             onClick={cancelHandler}
           />
           <input
             type="submit"
             className="btn btn-danger"
-            value="Delete"
+            value="Yes, I want to cancel."
             onClick={deleteHandler}
           />
         </div>

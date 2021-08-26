@@ -9,12 +9,6 @@ function Class({ singleClass }) {
   const modalHandler = () => {
     setIsShowingModal(!isShowingModal);
   };
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const deleteClassHandler = () => {
-    console.log(singleClass.classID);
-    dispatch(deleteAClass(singleClass.classID));
-  };
 
   if (!singleClass) return <div></div>;
   return (
