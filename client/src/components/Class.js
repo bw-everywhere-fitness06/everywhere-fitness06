@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Class({ singleClass }) {
   if (!singleClass) return <div></div>;
@@ -13,10 +13,11 @@ function Class({ singleClass }) {
 
       <p>Duration: {singleClass.duration}</p>
       <p>Class Size: {singleClass.capacity}</p>
-      <p>Class Instructor: {singleClass.instructorID}</p>
 
       <p>Class Level :{singleClass.intensity}</p>
-      <button> Edit Class</button>
+      <Link to={`/classes/edit/${singleClass.classID}`}>
+        <button> Edit Class</button>
+      </Link>
       <button> Cancel Class</button>
     </div>
   );

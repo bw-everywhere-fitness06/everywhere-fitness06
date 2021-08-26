@@ -7,23 +7,11 @@ import TextField from "./FormsUI/TextField";
 import DatePicker from "./FormsUI/DatePIcker";
 import TimePicker from "./FormsUI/TimePicker";
 import Button from "./FormsUI/Button";
-import { createNewClass } from "../Actions/classes";
+import { updateAClass } from "../Actions/classes";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams, useHistory } from "react-router-dom";
 
-function CreateClassForm() {
-  const initialClass = {
-    className: "",
-    type: "",
-    startDate: "",
-    startTime: "",
-    duration: "",
-    intensity: "",
-    location: "",
-    instructorID: "",
-    capacity: "",
-    classID: "",
-  };
-
+function EditClassForm() {
   const FORM_VALIDATION = Yup.object().shape({
     className: Yup.string().required("Required"),
     type: Yup.string().required("Required"),
@@ -37,24 +25,30 @@ function CreateClassForm() {
     startDate: Yup.date().required("Required"),
     startTime: Yup.string().required("Required"),
     duration: Yup.string().required("Required"),
+    reservedClientIDs: Yup.string().required("Required"),
   });
   const allClasses = useSelector((state) => state.classes);
+  console.log(allClasses);
+  const { id } = useParams();
+  console.log(id);
+  const selectedClass = allClasses.find(
+    (item) => item.classID.toString() === id
+  );
 
-  const [inputClass, setInputClass] = useState(initialClass);
   const dispatch = useDispatch();
   return (
     <Container maxWidth="sm" className="form">
       <Grid item xs={12}>
-        <h1>Create a New Class</h1>
+        <h1>Edit Class</h1>
       </Grid>
       <Formik
         validationSchema={FORM_VALIDATION}
-        initialValues={initialClass}
+        initialValues={selectedClass}
         onSubmit={(values) => {
+          console.log("dd");
+          console.log(selectedClass.classID);
           console.log(values);
-          dispatch(
-            createNewClass({ ...values, classID: allClasses.length + 1 })
-          );
+          //   dispatch(updateAClass(selectedClass.classID, values));
         }}
       >
         <Form>
@@ -92,7 +86,7 @@ function CreateClassForm() {
               <TextField name="reservedClientIDs" label="Reserved Client" />
             </Grid> */}
             <Grid item xs={12}>
-              <Button>Submit Form</Button>
+              <Button type="submit">Submit Form</Button>
             </Grid>
           </Grid>
         </Form>
@@ -101,4 +95,4 @@ function CreateClassForm() {
   );
 }
 
-export default CreateClassForm;
+export default EditClassForm;
