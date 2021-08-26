@@ -21,7 +21,6 @@ function CreateClassForm() {
     location: "",
     instructorID: "",
     capacity: "",
-    reservedClientIDs: "",
     classID: "",
   };
 
@@ -38,7 +37,6 @@ function CreateClassForm() {
     startDate: Yup.date().required("Required"),
     startTime: Yup.string().required("Required"),
     duration: Yup.string().required("Required"),
-    reservedClientIDs: Yup.string().required("Required"),
   });
   const allClasses = useSelector((state) => state.classes);
 
@@ -51,9 +49,11 @@ function CreateClassForm() {
       </Grid>
       <Formik
         validationSchema={FORM_VALIDATION}
-        initialValues={{ ...initialClass }}
+        initialValues={initialClass}
         onSubmit={(values) => {
+
           dispatch(createNewClass({ ...values, classID: Date.now() }));
+
         }}
       >
         <Form>
@@ -74,8 +74,11 @@ function CreateClassForm() {
             <Grid item xs={12}>
               <TextField name="location" label="Location" />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <TextField name="instructorID" label="instructorId" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField name="duration" label="Duration" />
             </Grid>
             <Grid item xs={6}>
               <DatePicker name="startDate" label="Date" />
@@ -83,12 +86,10 @@ function CreateClassForm() {
             <Grid item xs={6}>
               <TimePicker name="startTime" label="Time" />
             </Grid>
-            <Grid item xs={6}>
-              <TextField name="duration" label="Duration" />
-            </Grid>
-            <Grid item xs={6}>
+
+            {/* <Grid item xs={6}>
               <TextField name="reservedClientIDs" label="Reserved Client" />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <Button>Submit Form</Button>
             </Grid>

@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 app.use(CORS());
 
 let mockUserData = [
+
   {
     userID: "0",
     username: "Client1",
@@ -64,9 +65,13 @@ let mockUserData = [
   },
 ];
 
+
+
+  
 let mockClassData = [
-  {
+{
     classID: "1",
+
     startDate: "Aug 22,2021",
     startTime: "6:00pm",
     duration: "60",
@@ -78,9 +83,11 @@ let mockClassData = [
     instructorID: "4",
     className: "Hot Yoga For Your Back",
     reservedClientIDs: ["1", "2"],
+
   },
   {
     classID: "2",
+
     startDate: "Aug 23,2021",
     startTime: "7:00pm",
     duration: "70",
@@ -92,9 +99,12 @@ let mockClassData = [
     instructorID: "5",
     className: "Pilates For Your Shoulders",
     reservedClientIDs: ["1", "2"],
+
   },
   {
     classID: "3",
+
+
     startDate: "Aug 24,2021",
     startTime: "8:00pm",
     duration: "45",
@@ -106,9 +116,12 @@ let mockClassData = [
     instructorID: "6",
     className: "Run Around Your House Like A Maniac",
     reservedClientIDs: ["2", "3"],
+
   },
   {
     classID: "4",
+
+
     startDate: "Aug 25,2021",
     startTime: "6:30pm",
     duration: "50",
@@ -120,9 +133,12 @@ let mockClassData = [
     instructorID: "6",
     className: "Air Punching like a Pro",
     reservedClientIDs: ["1", "3"],
+
   },
   {
     classID: "5",
+
+
     startDate: "Aug 26,2021",
     startTime: "9:30pm",
     duration: "30",
@@ -134,9 +150,11 @@ let mockClassData = [
     instructorID: "5",
     className: "Yoga for Grandma",
     reservedClientIDs: ["3"],
+
   },
   {
     classID: "6",
+
     startDate: "Aug 27,2021",
     startTime: "12:30pm",
     duration: "25",
@@ -203,6 +221,7 @@ app.put("/users/:id", (req, res) => {
   mockUserData = mockUserData.map((user) => {
     if (`${user.userID}` === req.params.id) {
       return req.body;
+
     }
     return user;
   });
@@ -223,6 +242,7 @@ app.delete("/users/:id", (req, res) => {
 //   -------------------------------------------------------------------------------------------------------
 let classId = mockClassData.length;
 
+
 app.get("/classes", (req, res) => {
   res.send(mockClassData);
 });
@@ -233,6 +253,7 @@ app.get("/classes/:id", (req, res) => {
   )[0];
   res.status(200).json(item);
 });
+
 
 app.post("/classes", (req, res) => {
   if (req.body.className !== undefined) {

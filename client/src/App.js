@@ -39,6 +39,7 @@ function App() {
           <Route path="/upcoming-classes" component={UpcomingClasses} />
           <Route path="/adding-new" component={Classes} />
           <Route path="/classes/edit/:id" component={EditClassForm} />
+
           <Route path="/history" component={History} />
           {/* <Route path="/" component={Home} />
 

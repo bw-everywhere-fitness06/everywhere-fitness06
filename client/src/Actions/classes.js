@@ -8,6 +8,7 @@ const createClass = (input) => {
   return { type: "CREATE_CLASS", payload: input };
 };
 
+
 const updateClass = (input) => {
   return { type: "UPDATE_CLASS", payload: input };
 };
@@ -15,6 +16,7 @@ const updateClass = (input) => {
 const deleteClass = (input) => {
   return { type: "DELETE_CLASS", payload: input };
 };
+
 export const fetchClasses = () => {
   return (dispatch) => {
     axios
@@ -62,6 +64,7 @@ export const deleteAClass = (id) => {
       .then((res) => {
         console.log(res);
         dispatch(deleteClass(res.data));
+
       })
       .catch((err) => {
         console.log(err.message);
