@@ -10,11 +10,11 @@ import CreateClassForm from "./components/CreateClassForm";
 import MyClasses from "./components/MyClasses";
 import MyBookings from "./components/MyBookings";
 import UpcomingClasses from "./components/UpcomingClasses";
-import History from './components/History'
+import History from "./components/History";
 import Class from "./components/Class";
 import ClassDetails from "./components/ClassDetails";
 import { LoginForm } from "./components/accountBox/loginForm";
-
+import EditClassForm from "./components/EditClassForm";
 const AppContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -27,19 +27,18 @@ const AppContainer = styled.div`
 function App() {
   return (
     <BrowserRouter>
-
-      <NavBar/>
+      <NavBar />
       <AppContainer>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/signin" component={AccountBox} />
           <Route path="/signup" component={AccountBox} />
-          <Route path="/classes" component={MyClasses} />
+          <Route exact path="/classes" component={MyClasses} />
           <Route path="/class-details/:id" component={ClassDetails} />
           <Route path="/bookings" component={MyBookings} />
           <Route path="/upcoming-classes" component={UpcomingClasses} />
           <Route path="/adding-new" component={Classes} />
-
+          <Route path="/classes/edit/:id" component={EditClassForm} />
           <Route path="/history" component={History} />
           {/* <Route path="/" component={Home} />
 
