@@ -8,8 +8,13 @@ const createClass = (input) => {
   return { type: "CREATE_CLASS", payload: input };
 };
 
-const updateClass = (updatedInput) => {
-  return { type: "UPDATE_CLASS", payload: updatedInput };
+
+const updateClass = (input) => {
+  return { type: "UPDATE_CLASS", payload: input };
+};
+
+const deleteClass = (input) => {
+  return { type: "DELETE_CLASS", payload: input };
 };
 
 export const fetchClasses = () => {
@@ -39,12 +44,27 @@ export const createNewClass = (input) => {
   };
 };
 
-export const updateAClass = (classID, input) => {
+export const updateAClass = (id, input) => {
   return (dispatch) => {
     axios
-      .post(`http://localhost:5000/classes${classID}`, input)
+      .put(`http://localhost:5000/classes/${id}`, input)
       .then((res) => {
-        dispatch(updateClass(res.data));
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+};
+
+export const deleteAClass = (id) => {
+  return (dispatch) => {
+    axios
+      .delete(`http://localhost:5000/classes/${id}`)
+      .then((res) => {
+        console.log(res);
+        dispatch(deleteClass(res.data));
+
       })
       .catch((err) => {
         console.log(err.message);

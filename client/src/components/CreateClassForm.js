@@ -51,10 +51,9 @@ function CreateClassForm() {
         validationSchema={FORM_VALIDATION}
         initialValues={initialClass}
         onSubmit={(values) => {
-          console.log(values);
-          dispatch(
-            createNewClass({ ...values, classID: allClasses.length + 1 })
-          );
+
+          dispatch(createNewClass({ ...values, classID: Date.now() }));
+
         }}
       >
         <Form>

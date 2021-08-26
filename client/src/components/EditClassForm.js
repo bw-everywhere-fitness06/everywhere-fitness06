@@ -28,12 +28,15 @@ function EditClassForm() {
     reservedClientIDs: Yup.string().required("Required"),
   });
   const allClasses = useSelector((state) => state.classes);
-  console.log(allClasses);
+
+  const history = useHistory();
+
   const { id } = useParams();
   console.log(id);
   const selectedClass = allClasses.find(
     (item) => item.classID.toString() === id
   );
+
 
   const dispatch = useDispatch();
   return (
@@ -45,10 +48,11 @@ function EditClassForm() {
         validationSchema={FORM_VALIDATION}
         initialValues={selectedClass}
         onSubmit={(values) => {
-          console.log("dd");
-          console.log(selectedClass.classID);
-          console.log(values);
-          //   dispatch(updateAClass(selectedClass.classID, values));
+
+          dispatch(updateAClass(selectedClass.classID, values));
+          history.push("/adding-new");
+
+         
         }}
       >
         <Form>

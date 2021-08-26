@@ -6,6 +6,8 @@ const classes = (state = initialClass, action) => {
       return action.payload;
     case "CREATE_CLASS":
       return action.payload;
+    case "DELETE_CLASS":
+      return state.filter((item) => item.classID !== action.payload);
     case "UPDATE_CLASS":
       return state.map((item) => {
         return item.classID === action.payload.classID ? action.payload : item;
