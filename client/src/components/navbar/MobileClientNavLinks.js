@@ -56,7 +56,7 @@ export function MobileClientNavLinks(props) {
         <LinksWrapper>
           <Marginer />
           <LinkItem>
-          <Link href="/upcoming-classes">Classes</Link>
+          <Link href="/upcoming-classes">Upcoming Classes</Link>
         </LinkItem>
         <LinkItem>
           <Link href="/bookings">My Bookings</Link>
