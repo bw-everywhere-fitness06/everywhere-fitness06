@@ -8,7 +8,7 @@ const createClass = (input) => {
   return { type: "CREATE_CLASS", payload: input };
 };
 
-const updateClass = (updatedInput) => {
+export const updateClass = (updatedInput) => {
   return { type: "UPDATE_CLASS", payload: updatedInput };
 };
 

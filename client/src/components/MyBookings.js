@@ -1,45 +1,28 @@
 import BookedClass from "./BookedClass";
-import { mockClassData as data } from "../mockData/mockData";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchClasses } from "../Actions/classes.js";
 
-function fetchClasses() {
-  return Promise.resolve({ success: true, data });
-}
 
 const userId = 1;
 
 function MyBookings() {
-  const [classes, setClasses] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetchClasses().then((res) => {
-      setClasses(
-        res.data.filter((int) =>
-          int.reservedClientIDs.find((element) => element == userId)
-        )
-      );
-      console.log(
-        res.data.filter((int) =>
-          int.reservedClientIDs.find((element) => element == userId)
-        )
-      );
-    });
-  }, []);
+    dispatch(fetchClasses())
+  }, [dispatch]);
+
+  const allClasses = useSelector((state) => state.classes)
 
   return (
     <div className="classContainer">
       <h1>Booked Classes</h1>
-      {classes.map((item, index) => {
+      {allClasses.filter((int) =>
+          int.reservedClientIDs.find((element) => element == userId)
+        ).map((item, index) => {
         return (
-          <Link
-            to={{
-              pathname: `/class-details/${item.classID}`,
-              item: item,
-            }}
-          >
-            <BookedClass item={item} key={index} />
-          </Link>
+            <BookedClass item={item} userId={userId} />
         );
       })}
     </div>
