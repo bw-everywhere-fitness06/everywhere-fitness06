@@ -25,15 +25,15 @@ function Footer() {
           </form>
         </div>
       </section>
-      <div class='footer-links'>
+      <div className='footer-links'>
         <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>Location</h2>
             <p>1234 W. 6th Street</p>
             <p>Orlando, FL, 90020</p>
             <p>123-123-1234</p>
           </div>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>Hours</h2>
             <p>Open GYM: Mon-</p>
             <p>Thurs 8am-7pm, Fri</p>
@@ -44,7 +44,7 @@ function Footer() {
             <h2>Contact</h2>
             <a href="tel:1231231234">Call us at 123-123-1234</a>
           </div>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>Social Media</h2>
             <a href='https://www.instagram.com/'>Instagram</a>
             <a href='https://www.facebook.com/'>Facebook</a>
