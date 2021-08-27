@@ -27,7 +27,7 @@ function MyClasses() {
               item: item,
             }}
           >
-            <MyClass item={item} key={index} />
+            <MyClass item={item}/>
           </Link>
         );
       })}

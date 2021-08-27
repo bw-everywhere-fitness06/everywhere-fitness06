@@ -20,7 +20,7 @@ const deleteClass = (input) => {
 export const fetchClasses = () => {
   return (dispatch) => {
     axios
-      .get("http://localhost:5000/classes")
+      .get("http://localhost:5000/classes") 
       .then((res) => {
         console.log(res);
         dispatch(fetchAll(res.data));
