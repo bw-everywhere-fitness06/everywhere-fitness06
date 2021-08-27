@@ -1,42 +1,32 @@
 import React from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
-import { useParams } from "react-router-dom";
+import { updateAClass } from "../Actions/classes.js";
+import { useDispatch} from "react-redux";
 
-function BookedClass({ item }) {
-  const { id } = useParams();
+
+
+function BookedClass({ item, userId }) {
+  console.log(item)
+  const dispatch = useDispatch();
+
+
+  const handleCancelCLass = () => {
+    item.reservedClientIDs = item.reservedClientIDs.filter(e=>e != userId)
+    dispatch(updateAClass(item.classID, item))
+  };
+
   if (!item) return <div></div>;
   return (
-    <Container maxWidth="sm" className="classbox">
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <h1>Class Name:: {item.className}</h1>
-        </Grid>
-        <Grid item xs={4}>
-          <span>Date :</span> {item.startDate}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Time :</span> {item.startTime}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Duration :</span> {item.duration} mins
-        </Grid>
-        <Grid item xs={4}>
-          <span>Class Level :</span>
-          {item.intensity}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Class Status :</span>
-          {item.status}
-        </Grid>
-        <Grid item xs={6}>
-          <span>Class Location :</span>
-          {item.location}
-        </Grid>
-        <Grid item xs={6}>
-          <button> Cancel Class</button>
-        </Grid>
-      </Grid>
-    </Container>
+    <div className="classBox">
+      <h3>Class Name : {item.className}</h3>
+      <p>Date : {item.startDate}</p>
+      <p>Time : {item.startTime}</p>
+      <p>Class Type: {item.type}</p>
+      <p>Duration: {item.duration} mins</p>
+      <p>Class Level: {item.intensity} </p>
+      <p>Class Status: {item.status} </p>
+      <p>Class Location:{item.location}</p>
+      <button onClick={handleCancelCLass}> Cancel Class</button>
+    </div>
   );
 }
 

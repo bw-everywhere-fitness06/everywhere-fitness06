@@ -1,28 +1,25 @@
-import Class from "./Class";
-import { mockClassData as data } from "../mockData/mockData";
-import React, { useState, useEffect } from "react";
+import MyClass from "./MyClass";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchClasses } from "../Actions/classes.js";
 
-function fetchClasses() {
-  return Promise.resolve({ success: true, data });
-}
 
 const instructorId = 4;
 
 function MyClasses() {
-  const [classes, setClasses] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetchClasses().then((res) => {
-      setClasses(res.data.filter((int) => int.instructorID == instructorId));
-      console.log(res.data.filter((int) => int.instructorID == instructorId));
-    });
-  }, []);
+    dispatch(fetchClasses())
+  }, [dispatch]);
 
+  const allClasses = useSelector((state) => state.classes)
+
+  if (!Array.isArray(allClasses)) return <div></div>;
   return (
     <div className="classContainer">
       <h1>My Classes</h1>
-      {classes.map((item, index) => {
+      {allClasses.filter((int) => int.instructorID == instructorId).map((item, index) => {
         return (
           <Link
             to={{
@@ -30,7 +27,7 @@ function MyClasses() {
               item: item,
             }}
           >
-            <Class item={item} key={index} />
+            <MyClass item={item} key={index} />
           </Link>
         );
       })}

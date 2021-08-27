@@ -1,29 +1,21 @@
 import UpcomingClass from "./UpcomingClass";
-import { mockClassData as data } from "../mockData/mockData";
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
-function fetchClasses() {
-  return Promise.resolve({ success: true, data });
-}
-
-const userId = 1;
-
+import React, {useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchClasses } from "../Actions/classes.js";
+const userID = 1;
 function MyBookings() {
-  const [classes, setClasses] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetchClasses().then((res) => {
-      setClasses(res.data.filter((int) => int.status == "Upcoming"));
-      console.log(res.data.filter((int) => int.status == "Upcoming"));
-    });
-  }, []);
+    dispatch(fetchClasses())
+  }, [dispatch]);
+
+  const allClasses = useSelector((state) => state.classes)
 
   return (
     <div className="classContainer">
       <h1>Upcoming Classes</h1>
-      {classes.map((item, index) => {
-        return <UpcomingClass item={item} key={index} />;
+      {allClasses.filter((int) => int.status == "Upcoming").map((item, index) => {
+        return <UpcomingClass item={item} userID={userID} />;
       })}
     </div>
   );

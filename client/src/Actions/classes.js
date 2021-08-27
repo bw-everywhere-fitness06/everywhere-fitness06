@@ -31,6 +31,19 @@ export const fetchClasses = () => {
   };
 };
 
+export const fetchSingleClass = (id) => {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:5000/classes/${id}`)
+      .then((res) => {
+        console.log(res);
+        dispatch(fetchAll(res.data));
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+};
 export const createNewClass = (input) => {
   return (dispatch) => {
     axios
@@ -49,7 +62,8 @@ export const updateAClass = (id, input) => {
     axios
       .put(`http://localhost:5000/classes/${id}`, input)
       .then((res) => {
-        console.log(res);
+        dispatch(updateClass(res.data));
+
       })
       .catch((err) => {
         console.log(err.message);
