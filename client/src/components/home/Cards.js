@@ -38,13 +38,13 @@ function Cards() {
               src={ image4 }
               text='Individualized nutrition coaching based on a properly prepared, nutrient dense, whole food diet.'
               label='Kitchen'
-              path='/products'
+              path='/services'
             />
             <CardItem
               src={ image5 }
               text='Athletic Performance Coaching Personalized sports performance and fitness programs'
               label='Advanced Wellness trainers'
-              path='/sign-up'
+              path='/services'
             />
           </ul>
         </div>
