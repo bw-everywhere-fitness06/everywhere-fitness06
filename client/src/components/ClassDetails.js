@@ -1,86 +1,51 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
-import { useParams,useHistory} from "react-router-dom";
-import { mockClassData as data} from "../mockData/mockData";
-import Timer from './Timer'
+import { Link, useParams, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchClasses,fetchSingleClass } from "../Actions/classes.js";
 
-function fetchClassDetails(id) {
-    const dataItem= data.filter(e=>e.classID==id)
-    return Promise.resolve({ success: true, data:dataItem[0] });
-  }
+import Timer from "./Timer";
+
 
 
 function ClassDetails() {
-    const [details, setDetails] = useState([]);
-    const [timer, setTimer] = useState([]);
+  const item = useSelector((state) => state.classes);
+  const dispatch = useDispatch();
+console.log(item)
+  const [timer, setTimer] = useState([]);
 
-    const { push } = useHistory()
-    const { id } = useParams();
-    useEffect(() => {
-        fetchClassDetails(id).then((res) => {
-            setDetails(res.data);
-          console.log(res.data);
-        });
+  const { push } = useHistory();
+  const { id } = useParams();
+  useEffect(() => {
+    dispatch(fetchSingleClass(id));
 
-      }, []);
+    return () =>  {
+      dispatch(fetchClasses());
+    };
+  }, []);
 
+  const handleStartClass = () => {};
 
-    const handleStartClass = () =>{
-
-    }
-
-    const handleEdit = () =>{
-        push('/edit')
-    }
+  const handleEdit = () => {
+    push("/edit");
+  };
+  if (!item) return <div></div>;
   return (
-    <Container maxWidth="sm" className="classbox">
-        <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <h1>Class Name:: {details.className}</h1>
-        </Grid>
-        <Grid item xs={4}>
-          <span>Date :</span> {details.startDate}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Time :</span> {details.startTime}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Duration :</span> {details.duration} mins
-        </Grid>
-        <Grid item xs={4}>
-          <span>Class Capacity :</span> {details.capacity}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Class Level :</span>
-          {details.intensity}
-        </Grid>
-        <Grid item xs={4}>
-          <span>Class Status :</span>
-          {details.status}
-        </Grid>
-        <Grid item xs={6}>
-          <span>Class Location :</span>
-          {details.location}
-        </Grid>
-        <Grid item xs={6}>
-          <span>Class Instructor :</span>
-          {details.instructorID}
-        </Grid>
-        <Grid item xs={12}>
-          <span>Reserved Client : {details.reservedClientID}</span>
-        </Grid>
-        <Grid item xs={12}>
-          <Timer duration={details.duration} />
-        </Grid>
-        <Grid item xs={6}>
-          <button onClick={handleStartClass}> Start Class</button>
-        </Grid>
-        <Grid item xs={6}>
-          <button onClick={handleEdit}> Edit Details</button>
-        </Grid>
-      </Grid>
+    <div className="classBox">
+      <h3>Class Name : {item.className}</h3>
+      <p>Date : {item.startDate}</p>
+      <p>Time : {item.startTime}</p>
+      <p>Class Type: {item.type}</p>
 
-    </Container>
+      <p>Duration: {item.duration}</p>
+      <p>Class Size: {item.capacity}</p>
+
+      <p>Class Level :{item.intensity}</p>
+      <button onClick={handleStartClass}>Start Class</button>
+
+      <Link to={`/classes/edit/${item.classID}`}>
+        <button> Edit Details</button>
+      </Link>
+    </div>
   );
 }
 
