@@ -18,9 +18,6 @@ console.log(item)
   useEffect(() => {
     dispatch(fetchSingleClass(id));
 
-    return () =>  {
-      dispatch(fetchClasses());
-    };
   }, []);
 
   const handleStartClass = () => {};
