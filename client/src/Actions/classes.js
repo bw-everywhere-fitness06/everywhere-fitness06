@@ -62,7 +62,8 @@ export const updateAClass = (id, input) => {
     axios
       .put(`http://localhost:5000/classes/${id}`, input)
       .then((res) => {
-        console.log(res);
+        dispatch(updateClass(res.data));
+
       })
       .catch((err) => {
         console.log(err.message);

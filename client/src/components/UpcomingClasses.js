@@ -2,7 +2,7 @@ import UpcomingClass from "./UpcomingClass";
 import React, {useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchClasses } from "../Actions/classes.js";
-
+const userID = 1;
 function MyBookings() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,7 +15,7 @@ function MyBookings() {
     <div className="classContainer">
       <h1>Upcoming Classes</h1>
       {allClasses.filter((int) => int.status == "Upcoming").map((item, index) => {
-        return <UpcomingClass item={item} key={index} />;
+        return <UpcomingClass item={item} userID={userID} />;
       })}
     </div>
   );

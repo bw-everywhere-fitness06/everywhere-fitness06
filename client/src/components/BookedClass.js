@@ -1,7 +1,7 @@
 import React from "react";
-import { updateAClass,updateClass } from "../Actions/classes.js";
+import { updateAClass } from "../Actions/classes.js";
 import { useDispatch} from "react-redux";
-import axios from 'axios';
+
 
 
 function BookedClass({ item, userId }) {
@@ -11,16 +11,7 @@ function BookedClass({ item, userId }) {
 
   const handleCancelCLass = () => {
     item.reservedClientIDs = item.reservedClientIDs.filter(e=>e != userId)
-    axios
-      .put(`http://localhost:5000/classes/${item.classID}`, item)
-      .then((res) => {
-        console.log(res)
-        dispatch(updateClass(res.data));
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-    // useDispatch(updateAClass(item.classID, item))
+    dispatch(updateAClass(item.classID, item))
   };
 
   if (!item) return <div></div>;
