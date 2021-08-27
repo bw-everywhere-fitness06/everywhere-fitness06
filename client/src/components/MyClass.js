@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
-import { Link, useParams } from "react-router-dom";
+
 
 function MyClass({ item }) {
   if (!item) return <div></div>;
